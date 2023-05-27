@@ -2,6 +2,25 @@ import React from 'react';
 import { dataList } from './dataManager';
 import { useState, useEffect } from 'react';
 
+const autheticateUser = () => {
+  //api call to check user authetication
+
+  return true;
+};
+
+const Login = () => {
+  const [toggle, settoggle] = useState(false);
+  const handleClickk = () => {
+    const apicall = autheticateUser();
+    settoggle(!toggle);
+  };
+  return toggle === false ? (
+    <button onClick={handleClickk}>Login button</button>
+  ) : (
+    <button onClick={handleClickk}>Logout button</button>
+  );
+};
+
 //
 // Use the updated `dataList` value as needed
 // let lis = [];
@@ -817,6 +836,16 @@ const App = () => {
 
   return (
     <div>
+      <Login />
+      {autheticateUser() === true ? (
+        <div>
+          <h1>login sucessfully</h1>
+          <button>logout-button</button>
+        </div>
+      ) : (
+        <button>login-button</button>
+      )}
+
       <h3>Add data into satic json</h3>
       <input
         type="text"
@@ -912,7 +941,8 @@ const App = () => {
               searchtxt === num.data.name ||
               searchtxt === num.data.avgRating ||
               searchtxt === num.data.id ||
-              num.data.name.includes(searchtxt)
+              num.data.name.includes(searchtxt) ||
+              num.data.name.toLowerCase().includes(searchtxt)
           )
           .map((num) => {
             return (
