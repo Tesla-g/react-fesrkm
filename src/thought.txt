@@ -1,0 +1,5 @@
+fetch the data after the render
+
+
+show that data
+adn then flter it 

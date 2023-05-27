@@ -1,7 +1,8 @@
 import React from 'react';
 import { dataList } from './dataManager';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+//
 // Use the updated `dataList` value as needed
 // let lis = [];
 let restaurantList = [
@@ -744,6 +745,10 @@ const getData = () => {
 const setData = (newData) => {
   restaurantList = newData;
 };
+console.log(getData());
+const Shimmer = () => {
+  return <h1> shimemr loading screen.......</h1>;
+};
 const getJsxCondinalrender = (searchtxt) => {
   // let content = searchtxt;
   // // Conditional logic
@@ -760,12 +765,25 @@ const getJsxCondinalrender = (searchtxt) => {
   return <div>{newfiltredlist}</div>;
 };
 const App = () => {
+  const [restaurantListt, setrestaurantListt] = useState([]);
+  //
+  useEffect(() => {
+    requestData();
+  }, []);
+  async function requestData() {
+    const res = await fetch(
+      'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6558126&lng=77.2419522&page_type=DESKTOP_WEB_LISTING'
+    );
+    const data = await res.json();
+    console.log(data.data.cards[2].data.data.cards);
+    setrestaurantListt(data?.data?.cards[2]?.data?.data?.cards);
+  }
   // const [data, setdata] = useState(lis);
   const [checkedvalue, setcheckedvalue] = useState('');
-  console.log(checkedvalue);
+  // console.log(checkedvalue);
 
   const [checked, setchecked] = useState(false);
-  console.log(checked);
+  // console.log(checked);
 
   const [value, setvalue] = useState('');
   const [cloudinaryImageId, setcloudinaryImageId] = useState('');
@@ -775,7 +793,7 @@ const App = () => {
   const handleClick = () => {
     const obj = {
       data: {
-        id: restaurantList.length + 1,
+        id: restaurantListt.length + 1,
         name: value,
         cloudinaryImageId: cloudinaryImageId,
         avgRating: avgRating,
@@ -786,13 +804,16 @@ const App = () => {
     // lis.push(...data);
     // console.log('data', data);
     // console.log('lis', lis);
-    const newData = [...getData(), obj];
-    setData(newData);
+    // const newData = [...restaurantListt, obj];
+    // setData(newData);
+    setrestaurantListt([...restaurantListt, obj]);
+
     setvalue('');
 
     setcloudinaryImageId('');
     setAvgRating('');
   };
+  console.log('render()');
 
   return (
     <div>
@@ -831,56 +852,67 @@ const App = () => {
       <br />
       <button onClick={handleClick}>Submit</button>
       <h3>Search</h3>
-      <input
-        type="text"
-        placeholder="serach"
-        name="serachquery"
-        id="search"
-        value={searchtxt}
-        onChange={(e) => {
-          setsearchtxt(e.target.value);
-        }}
-      />
-      {searchtxt}
+
+      <div>
+        <input
+          type="text"
+          placeholder="serach"
+          name="serachquery"
+          id="search"
+          value={searchtxt}
+          onChange={(e) => {
+            setsearchtxt(e.target.value);
+          }}
+        />
+
+        <h1> {searchtxt}</h1>
+      </div>
+
       {/* first of all you have to make a 
       if seartxt is not empty or fouces he render as it is and if the serctxt is having data then show the filterd list that is given by another function 
       */}
       {/* { 
         restaurantList.filter((num)=>)
       } */}
-      {true ? <h1>dasdad </h1> : null}
+      {/* {true ? <h1>dasdad </h1> : null} */}
       {/* {restaurantList.filter((num) =>
         searchtxt === num.data.id || searchtxt === num.data.name ? num : null
       )} */}
+
       {searchtxt === '' ? (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
-            gap: '0.5rem',
-            gridGap: '1.25rem',
-            width: '100%',
-          }}
-        >
-          {getData().map((num, idx) => {
-            return (
-              <Card
-                key={num.data.id}
-                image={`${IMG_CDN_URL}${num.data.cloudinaryImageId}`}
-                restraname={num.data.name}
-                rating={num.data.avgRating}
-                isVisible={!checked || checkedvalue === num.data.avgRating}
-              />
-            );
-          })}
-        </div>
+        restaurantListt.length === 0 ? (
+          <Shimmer />
+        ) : (
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+              gap: '0.5rem',
+              gridGap: '1.25rem',
+              width: '100%',
+            }}
+          >
+            {restaurantListt.map((num, idx) => {
+              return (
+                <Card
+                  key={num.data.id}
+                  image={`${IMG_CDN_URL}${num.data.cloudinaryImageId}`}
+                  restraname={num.data.name}
+                  rating={num.data.avgRating}
+                  isVisible={!checked || checkedvalue === num.data.avgRating}
+                />
+              );
+            })}
+          </div>
+        )
       ) : (
-        restaurantList
+        restaurantListt
           .filter(
             (num) =>
               searchtxt === num.data.name ||
               searchtxt === num.data.avgRating ||
-              searchtxt === num.data.id
+              searchtxt === num.data.id ||
+              num.data.name.includes(searchtxt)
           )
           .map((num) => {
             return (
@@ -901,7 +933,7 @@ const App = () => {
       )}
 
       {searchtxt !== '' &&
-      restaurantList.filter((num) => searchtxt == num.data.name).length ===
+      restaurantListt.filter((num) => searchtxt == num.data.name).length ===
         0 ? (
         <h1>Not Found</h1>
       ) : null}
