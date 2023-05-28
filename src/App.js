@@ -7,7 +7,6 @@ const autheticateUser = () => {
 
   return true;
 };
-
 const Login = () => {
   const [toggle, settoggle] = useState(false);
   const handleClickk = () => {
@@ -766,7 +765,39 @@ const setData = (newData) => {
 };
 console.log(getData());
 const Shimmer = () => {
-  return <h1> shimemr loading screen.......</h1>;
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+        gap: '0.5rem',
+        gridGap: '1.25rem',
+        width: '100%',
+      }}
+    >
+      {Array(10)
+        .fill('')
+        .map((num, idx) => {
+          return (
+            <div
+              key={idx}
+              style={{
+                backgroundColor: '#D3d3d3',
+                border: '1px solid #ddd',
+                borderRadius: '4px',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                padding: '16px',
+                width: '300px',
+                height: '300px',
+                margin: '16px',
+
+                overflow: 'hidden',
+              }}
+            ></div>
+          );
+        })}
+    </div>
+  );
 };
 const getJsxCondinalrender = (searchtxt) => {
   // let content = searchtxt;
