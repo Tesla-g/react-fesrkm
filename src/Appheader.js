@@ -9,11 +9,17 @@ const Appheaderdata = [
 const Appheader = () => {
   return (
     <nav>
-      <ul>
+      <ul
+        style={{
+          display: 'flex',
+          textDecoration: 'none',
+          listStyleType: 'none',
+        }}
+      >
         {Appheaderdata.map((num, idx) => {
           return (
             <li key={idx}>
-              <Link to="">
+              <Link to="" style={{ textDecoration: 'none' }}>
                 {num.nav_name} <span>{num.svg_id} </span>{' '}
               </Link>{' '}
             </li>

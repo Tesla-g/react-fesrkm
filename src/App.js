@@ -6,7 +6,10 @@ import Appheader from './Appheader';
 
 const Appnav = () => {
   return (
-    <div>
+    <div
+      className="header"
+      style={{ display: 'flex', justifyContent: 'space-between' }}
+    >
       <Logo />
       <Appheader />
       <Login />
@@ -882,7 +885,7 @@ const App = () => {
   console.log('render()');
 
   return (
-    <div>
+    <div className="Applayout">
       <Appnav />
       {autheticateUser() === true ? (
         <div>
