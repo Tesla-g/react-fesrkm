@@ -6,9 +6,14 @@ adn then flter it
 
 task -1 create a nav  along with svg and data should come from object and(completed ) : Pending task css will be added later and responisve will also be added in the future 
 task-2 create a hover list.
+
 task 3 add a modelwhich will contain the filter list items 
 
 task-4 use router to add the  page when user clicks on that page it should redirect to the page inside the layout and use the use location which will show where you are and also add the shimmer functionality after routing the page 
+
+
+task-5 create a form for sigin using formik and add the client side validation and the data validation will be done on the server side 
+
 
 
 
