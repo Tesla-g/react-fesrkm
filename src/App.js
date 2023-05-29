@@ -1,7 +1,45 @@
 import React from 'react';
 import { dataList } from './dataManager';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+const Appheaderdata = [
+  { nav_name: 'Home ', svg_id: '' },
+  { nav_name: 'Contact ', svg_id: '' },
+  { nav_name: 'About ', svg_id: '' },
+  { nav_name: 'Cart ', svg_id: '' },
+];
 
+export const Appheader = () => {
+  return (
+    <nav>
+      <ul>
+        {Appheaderdata.map((num, idx) => {
+          return (
+            <li key={idx}>
+              <Link to="">
+                {num.nav_name} <span>{num.svg_id} </span>{' '}
+              </Link>{' '}
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};
+const Appnav = () => {
+  return (
+    <div>
+      <Logo />
+      <Appheader />
+      <Login />
+    </div>
+  );
+};
+const logourl =
+  'https://th.bing.com/th/id/OIP.ueHppfRf52CDn841Rpj8IwHaHa?pid=ImgDet&rs=1';
+const Logo = () => {
+  return <img src={logourl} alt="" width="80rem" />;
+};
 const autheticateUser = () => {
   //api call to check user authetication
 
@@ -867,7 +905,7 @@ const App = () => {
 
   return (
     <div>
-      <Login />
+      <Appnav />
       {autheticateUser() === true ? (
         <div>
           <h1>login sucessfully</h1>

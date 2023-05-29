@@ -3,3 +3,11 @@ fetch the data after the render
 
 show that data
 adn then flter it 
+
+task -1 create a nava along with svg and data should come from object and 
+also add the 
+task-2 create a hover list.
+task 3 add a modelwhich will contain the filter list items 
+
+task-4 use router to add the  page when user clicks on that page it should redirect to the page inside the layout
+
