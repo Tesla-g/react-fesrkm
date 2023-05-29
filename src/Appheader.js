@@ -29,7 +29,7 @@ const Appheader = () => {
               <Link to="" style={{ textDecoration: 'none' }}>
                 {num.nav_name}
               </Link>{' '}
-              <span>{num.svg_id && <num.svg_id />}</span>
+              <span>{num?.svg_id && <num.svg_id />}</span>
             </li>
           );
         })}
