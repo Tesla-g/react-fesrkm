@@ -6,14 +6,17 @@ import Appheader from './Appheader';
 
 const Appnav = () => {
   return (
-    <div
-      className="header"
-      style={{ display: 'flex', justifyContent: 'space-between' }}
-    >
-      <Logo />
-      <Appheader />
-      <Login />
-    </div>
+    <>
+      <div
+        className="header"
+        style={{ display: 'flex', justifyContent: 'space-between' }}
+      >
+        <Logo />
+        <Appheader />
+        <Login />
+      </div>
+      <div style={{ borderBottom: '1px solid black', width: '100%' }}></div>
+    </>
   );
 };
 const logourl =

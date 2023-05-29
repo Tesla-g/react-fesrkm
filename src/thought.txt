@@ -4,8 +4,7 @@ fetch the data after the render
 show that data
 adn then flter it 
 
-task -1 create a nav  along with svg and data should come from object and 
-also add the 
+task -1 create a nav  along with svg and data should come from object and(completed ) : Pending task css will be added later and responisve will also be added in the future 
 task-2 create a hover list.
 task 3 add a modelwhich will contain the filter list items 
 

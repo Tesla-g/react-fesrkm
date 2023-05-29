@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  AiFillHome,
+  AiFillContacts,
+  AiOutlineShoppingCart,
+} from 'react-icons/ai';
+import { FcAbout } from 'react-icons/fc';
 const Appheaderdata = [
-  { nav_name: 'Home ', svg_id: '' },
-  { nav_name: 'Contact ', svg_id: '' },
-  { nav_name: 'About ', svg_id: '' },
-  { nav_name: 'Cart ', svg_id: '' },
+  { nav_name: 'Home ', svg_id: AiFillHome },
+  { nav_name: 'Contact ', svg_id: AiFillContacts },
+  { nav_name: 'About ', svg_id: FcAbout },
+  { nav_name: 'Cart ', svg_id: AiOutlineShoppingCart },
 ];
 const Appheader = () => {
   return (
@@ -12,6 +18,7 @@ const Appheader = () => {
       <ul
         style={{
           display: 'flex',
+          ' align-items': 'center',
           textDecoration: 'none',
           listStyleType: 'none',
         }}
@@ -20,8 +27,9 @@ const Appheader = () => {
           return (
             <li key={idx}>
               <Link to="" style={{ textDecoration: 'none' }}>
-                {num.nav_name} <span>{num.svg_id} </span>{' '}
+                {num.nav_name}
               </Link>{' '}
+              <span>{num.svg_id && <num.svg_id />}</span>
             </li>
           );
         })}

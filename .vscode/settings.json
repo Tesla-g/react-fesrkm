@@ -10,7 +10,7 @@
    * Can be: 'on', 'off', or 'smart'.
    * Defaults to 'on'.
    */
-  // "editor.acceptSuggestionOnEnter": "on",
+  "editor.acceptSuggestionOnEnter": "on",
   /**
    * Controls whether the editor should automatically close brackets after the user adds an opening bracket.
    * Can be: 'always', 'beforeWhitespace', 'languageDefined' or 'never'.
@@ -204,7 +204,7 @@
    * Controls the delay in milliseconds after which quick suggestions will show up.
    * Defaults to 10 (ms).
    */
-  // "editor.quickSuggestionsDelay": 10,
+  // "editor.quickSuggestionsDelay": 1,
   /**
    * Controls whether the editor should render control characters.
    * Defaults to true.
