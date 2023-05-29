@@ -1,3 +1,3 @@
 # react-fesrkm
 
-[Edit on StackBlitz ⚡️](https://react-mrxm5t.stackblitz.io)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-mrxm5t?file=README.md)
