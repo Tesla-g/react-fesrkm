@@ -26,7 +26,7 @@ const Appheader = () => {
         {Appheaderdata.map((num, idx) => {
           return (
             <li key={idx}>
-              <Link to="" style={{ textDecoration: 'none' }}>
+              <Link to={'/' + num.nav_name} style={{ textDecoration: 'none' }}>
                 {num.nav_name}
               </Link>{' '}
               <span>{num?.svg_id && <num.svg_id />}</span>
