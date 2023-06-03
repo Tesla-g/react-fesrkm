@@ -1,7 +1,7 @@
 import React from 'react';
 import { dataList } from './dataManager';
 import { useState, useEffect } from 'react';
-
+import { Outlet, Link } from 'react-router-dom';
 import Appheader from './Appheader';
 
 const Appnav = () => {
@@ -22,7 +22,14 @@ const Appnav = () => {
 const logourl =
   'https://th.bing.com/th/id/OIP.ueHppfRf52CDn841Rpj8IwHaHa?pid=ImgDet&rs=1';
 const Logo = () => {
-  return <img src={logourl} alt="" width="80rem" />;
+  return (
+    <>
+      <Link to="/">
+        {' '}
+        <img src={logourl} alt="logoimage" width="80rem" />;
+      </Link>
+    </>
+  );
 };
 const autheticateUser = () => {
   //api call to check user authetication
@@ -889,7 +896,6 @@ const App = () => {
 
   return (
     <div className="Applayout">
-      <Appnav />
       {autheticateUser() === true ? (
         <div>
           <h1>login sucessfully</h1>
@@ -1125,6 +1131,22 @@ const Card = ({ image, restraname, foodname, rating, isVisible }) => {
       <h4>{rating}</h4>
       <button>Add to cart</button>
     </div>
+  );
+};
+const Footer = () => {
+  return (
+    <>
+      <h1>This is a footer Page </h1>
+    </>
+  );
+};
+export const AppLayout = () => {
+  return (
+    <>
+      <Appnav />
+      <Outlet />
+      <Footer />
+    </>
   );
 };
 const IMG_CDN_URL =

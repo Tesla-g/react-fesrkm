@@ -1,19 +1,48 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-
+import Error from './Error';
 import { App } from './App';
+import { AppLayout } from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
-  },
-
-  {
-    path: '/contact',
-    element: <div>Contact </div>,
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/',
+        element: <App />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/Home',
+        element: <App />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/Contact',
+        element: <div>Contact </div>,
+        errorElement: <Error />,
+      },
+      {
+        path: '/About',
+        element: <div>About </div>,
+        errorElement: <Error />,
+      },
+      {
+        path: '/Cart',
+        element: <div>Cart </div>,
+        errorElement: <Error />,
+      },
+      {
+        path: '/restra/:id',
+        element: <div>restra page </div>,
+        errorElement: <Error />,
+      },
+    ],
   },
 ]);
 root.render(

@@ -18,7 +18,7 @@ const Appheader = () => {
       <ul
         style={{
           display: 'flex',
-          ' align-items': 'center',
+          ' alignItems': 'center',
           textDecoration: 'none',
           listStyleType: 'none',
         }}

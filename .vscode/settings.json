@@ -99,7 +99,7 @@
   /**
    * Controls the font size in pixels.
    */
-  "editor.fontSize": 15
+  "editor.fontSize": 15,
   /**
    * Controls the font weight. Accepts 'normal' and 'bold' keywords or numbers values between '100' and '900'.
    */
@@ -199,12 +199,12 @@
    * Controls whether suggestions should automatically show up while typing.
    * Defaults to true.
    */
-  // "editor.quickSuggestions": true,
+  "editor.quickSuggestions": true,
   /**
    * Controls the delay in milliseconds after which quick suggestions will show up.
    * Defaults to 10 (ms).
    */
-  // "editor.quickSuggestionsDelay": 1,
+  "editor.quickSuggestionsDelay": 0.5
   /**
    * Controls whether the editor should render control characters.
    * Defaults to true.
