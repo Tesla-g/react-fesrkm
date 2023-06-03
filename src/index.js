@@ -4,6 +4,7 @@ import Error from './Error';
 import { App } from './App';
 import { AppLayout } from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Restramenu from './Restramenu';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 const router = createBrowserRouter([
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/restra/:id',
-        element: <div>restra page </div>,
+        element: <Restramenu />,
         errorElement: <Error />,
       },
     ],
