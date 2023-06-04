@@ -15,5 +15,5 @@ task-4 use router to add the  page when user clicks on that page it should redir
 task-5 create a form for sigin using formik and add the client side validation and the data validation will be done on the server side 
 
 
-
+map onto the offers list an retur the jsx for the offer lis 
 

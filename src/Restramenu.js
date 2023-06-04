@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import {IMG_CDN_URL} from "./Content"
+import { IMG_CDN_URL } from './Content';
+
+const Offerlist = () => {
+  return <></>;
+};
 const Restramenu = () => {
   let { id } = useParams();
   const [restlist, setreslist] = useState({});
@@ -14,15 +18,33 @@ const Restramenu = () => {
     const resdata = await data.json();
     setreslist(resdata.data?.cards);
   }
-  console.log(restlist[0]?.card?.card?.info);
-  const imagurl=`${ IMG_CDN_URL}`;
+  console.log(restlist[1]?.card?.card?.gridElements?.infoWithStyle?.offers);
+  const imagurl = `${IMG_CDN_URL}${restlist[0]?.card?.card?.info.cloudinaryImageId}`;
+
   return (
     <>
-      <h1>restrapage id is: {id}</h1>
-      <h2>{restlist[0]?.card?.card?.info?.name}</h2>
-    <h3>{restlist[0]?.card?.card?.info?.city}</h3>
-      <img src={} alt="restrimageid" />
-      <h3></h3>
+      <div>
+        {' '}
+        <h1>restrapage id is: {id}</h1>
+        <h2>{restlist[0]?.card?.card?.info?.name}</h2>
+        <h3>
+          {restlist[0]?.card?.card?.info?.city}{' '}
+          {restlist[0]?.card?.card?.info?.areaName}
+        </h3>
+        <img src={imagurl} alt="restrimageid" />
+        <h3>{restlist[0]?.card?.card?.info?.costForTwoMessage}</h3>
+      </div>
+
+      {restlist[1]?.card?.card?.gridElements?.infoWithStyle?.offers.map(
+        (num, idx) => {
+          return (
+            <div key={idx}>
+              <h3>{`${num.info.header}`}</h3>
+              <h4>Coupencode :{`${num.info.couponCode}`}</h4>
+            </div>
+          );
+        }
+      )}
     </>
   );
 };
