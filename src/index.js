@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/Contact',
-        element: <div>Contact </div>,
+        element: <h1 className="text-3xl font-bold underline">Hello world!</h1>,
         errorElement: <Error />,
       },
       {
