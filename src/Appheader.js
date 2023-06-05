@@ -15,7 +15,10 @@ const Appheaderdata = [
 const Appheader = () => {
   return (
     <nav>
-    <h1 className='text-3xl underline  font-sans font-light'>dasdasd</h1>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+      </button>
+      <h1 className="text-3xl underline  font-sans font-light">dasdasd</h1>
       <ul
         style={{
           display: 'flex',
