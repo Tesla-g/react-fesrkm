@@ -5,6 +5,7 @@ import { App } from './App';
 import { AppLayout } from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Restramenu from './Restramenu';
+import "./style.css"
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 const router = createBrowserRouter([

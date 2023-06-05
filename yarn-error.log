@@ -1,0 +1,50 @@
+Arguments: 
+  /usr/local/bin/node /opt/yarn-v1.22.19/bin/yarn.js start
+
+PATH: 
+  /project/home/pitcher-host/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/project/home/pitcher-host/.local/state/fnm_multishells/13863_1685908397875/bin:/usr/share/fnm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /project/react-fesrkm/package.json: Unexpected token s in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at /opt/yarn-v1.22.19/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/opt/yarn-v1.22.19/lib/cli.js:310:30)
+      at /opt/yarn-v1.22.19/lib/cli.js:321:13
+
+npm manifest: 
+  s{
+    "name": "react",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-icons": "^4.9.0",
+      "react-router-dom": "^6.11.2"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    },
+    "devDependencies": {
+      "react-scripts": "latest"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
