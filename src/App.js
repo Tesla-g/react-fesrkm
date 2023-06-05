@@ -925,6 +925,7 @@ const App = () => {
           setcloudinaryImageId(e.target.value);
         }}
       />
+      
       <input
         type="text"
         placeholder="avgRating"
