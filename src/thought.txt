@@ -17,4 +17,8 @@ task-5 create a form for sigin using formik and add the client side validation a
 
 map onto the offers list an retur the jsx for the offer lis 
 
-dsdasdasd
+================================================
+
+retain the state of the of the component after the data is re-render like wish list compnenet 
+
+you need to use the local storage to store that data 
