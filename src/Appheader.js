@@ -17,6 +17,7 @@ const Appheader = () => {
     <nav>
       <h1 className='text '>dsadsadasd</h1>
       <h2 className='font-mono text-blue-400'>css change branch</h2>
+      <h3>new changes dione</h3>
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Button
       </button>
