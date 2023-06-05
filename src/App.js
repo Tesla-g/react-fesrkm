@@ -3,10 +3,11 @@ import { dataList } from './dataManager';
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Appheader from './Appheader';
-
+import Appheadertwo from './Appheadertwo';
 const Appnav = () => {
   return (
     <>
+      <Appheadertwo />
       <div
         className="header"
         style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -796,13 +797,7 @@ console.log(getData());
 const Shimmer = () => {
   return (
     <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
-        gap: '0.5rem',
-        gridGap: '1.25rem',
-        width: '100%',
-      }}
+      className='grid grid-cols-4 gap-2'
     >
       {Array(10)
         .fill('')
@@ -925,7 +920,7 @@ const App = () => {
           setcloudinaryImageId(e.target.value);
         }}
       />
-      
+
       <input
         type="text"
         placeholder="avgRating"
@@ -973,13 +968,7 @@ const App = () => {
           <Shimmer />
         ) : (
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
-              gap: '0.5rem',
-              gridGap: '1.25rem',
-              width: '100%',
-            }}
+           className='grid grid-cols-4 gap-2 '
           >
             {restaurantListt.map((num, idx) => {
               return (
@@ -1023,7 +1012,7 @@ const App = () => {
       )}
 
       {searchtxt !== '' &&
-      restaurantListt.filter((num) => searchtxt == num.data.name).length ===
+        restaurantListt.filter((num) => searchtxt == num.data.name).length ===
         0 ? (
         <h1>Not Found</h1>
       ) : null}
@@ -1066,16 +1055,16 @@ const App = () => {
 
       {checked && checkedvalue !== ''
         ? restaurantList
-            .filter((num) => checkedvalue === num.data.avgRating)
-            .map((num) => (
-              <div key={num.data.id}>
-                <Card
-                  image={`${IMG_CDN_URL}${num.data.cloudinaryImageId}`}
-                  restraname={num.data.name}
-                  rating={num.data.avgRating}
-                />
-              </div>
-            ))
+          .filter((num) => checkedvalue === num.data.avgRating)
+          .map((num) => (
+            <div key={num.data.id}>
+              <Card
+                image={`${IMG_CDN_URL}${num.data.cloudinaryImageId}`}
+                restraname={num.data.name}
+                rating={num.data.avgRating}
+              />
+            </div>
+          ))
         : null}
 
       <div>
@@ -1144,8 +1133,12 @@ const Footer = () => {
 export const AppLayout = () => {
   return (
     <>
+
       <Appnav />
+      <section className='max-w-7xl mx-auto '>
       <Outlet />
+      </section>
+
       <Footer />
     </>
   );
