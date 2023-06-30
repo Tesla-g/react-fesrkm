@@ -8,15 +8,12 @@ const Appnav = () => {
   return (
     <>
       {/* <Appheadertwo /> */}
-      <div
-        className="header flex justify-between max-w-7xl mx-auto py-3 "
-       
-      >
+      <div className="header flex justify-between max-w-7xl mx-auto py-3 ">
         <Logo />
         <Appheader />
         <Login />
       </div>
-      <div className='border-b-4 border-dotted border-black '></div>
+      <div className="border-b-4 border-dotted border-black "></div>
     </>
   );
 };
@@ -44,9 +41,13 @@ const Login = () => {
     settoggle(!toggle);
   };
   return toggle === false ? (
-    <button onClick={handleClickk} className='bg-blue-500 p-3'>Login </button>
+    <button onClick={handleClickk} className="bg-blue-500 p-3">
+      Login{' '}
+    </button>
   ) : (
-    <button onClick={handleClickk} className='bg-blue-500 p-3'>Logout </button>
+    <button onClick={handleClickk} className="bg-blue-500 p-3">
+      Logout{' '}
+    </button>
   );
 };
 
@@ -796,9 +797,7 @@ const setData = (newData) => {
 console.log(getData());
 const Shimmer = () => {
   return (
-    <div
-      className='grid grid-cols-4 gap-2'
-    >
+    <div className="grid grid-cols-4 gap-2">
       {Array(10)
         .fill('')
         .map((num, idx) => {
@@ -865,7 +864,6 @@ const App = () => {
   // console.log(value);
   const [searchtxt, setsearchtxt] = useState('');
   const handleClick = () => {
- 
     const obj = {
       data: {
         id: restaurantListt.length + 1,
@@ -894,31 +892,27 @@ const App = () => {
     <div className="Applayout">
       {autheticateUser() === true ? (
         <div>
-          <h1 className='font-mono'>login sucessfully</h1>
-          <button  className='bg-blue-400 p-3 rounded-md font-mono'>logout-button</button>
+          <h1 className="font-mono">login sucessfully</h1>
+          <button className="bg-blue-400 p-3 rounded-md font-mono">
+            logout-button
+          </button>
         </div>
       ) : (
-        <button className='bg-blue-400 ' >login-button</button>
+        <button className="bg-blue-400 ">login-button</button>
       )}
-
-
-
-
-
-
-
-
-
 
       {/* {JSON.stringify(getData())} */}
       <br />
       {value}
       <br />
 
-      <h3 className='font-mono font-extrabold text-black text-lg'>Search box</h3>
+      <h3 className="font-mono font-extrabold text-black text-lg">
+        Search box
+      </h3>
 
-      <div >
-        <input className='border-2 border-solid border-blue-500 p-3 text-black font-mono font-semibold  focus:bg-blue-100 outline-none text-lg pr-20'
+      <div>
+        <input
+          className="border-2 border-solid border-blue-500 p-3 text-black font-mono font-semibold  focus:bg-blue-100 outline-none text-lg pr-20"
           type="text"
           placeholder="Search food"
           name="serachquery"
@@ -947,9 +941,7 @@ const App = () => {
         restaurantListt.length === 0 ? (
           <Shimmer />
         ) : (
-          <div
-           className='grid grid-cols-4 gap-2 '
-          >
+          <div className="grid grid-cols-4 gap-2 ">
             {restaurantListt.map((num, idx) => {
               return (
                 <Card
@@ -992,11 +984,11 @@ const App = () => {
       )}
 
       {searchtxt !== '' &&
-        restaurantListt.filter((num) => searchtxt == num.data.name).length ===
+      restaurantListt.filter((num) => searchtxt == num.data.name).length ===
         0 ? (
-      <div className='text-center'>
-          <h1 className='text-2xl font-mono font-bold'>Not Found!!! </h1>
-      </div>
+        <div className="text-center">
+          <h1 className="text-2xl font-mono font-bold">Not Found!!! </h1>
+        </div>
       ) : null}
 
       {/* restaurantList
@@ -1037,16 +1029,16 @@ const App = () => {
 
       {checked && checkedvalue !== ''
         ? restaurantList
-          .filter((num) => checkedvalue === num.data.avgRating)
-          .map((num) => (
-            <div key={num.data.id}>
-              <Card
-                image={`${IMG_CDN_URL}${num.data.cloudinaryImageId}`}
-                restraname={num.data.name}
-                rating={num.data.avgRating}
-              />
-            </div>
-          ))
+            .filter((num) => checkedvalue === num.data.avgRating)
+            .map((num) => (
+              <div key={num.data.id}>
+                <Card
+                  image={`${IMG_CDN_URL}${num.data.cloudinaryImageId}`}
+                  restraname={num.data.name}
+                  rating={num.data.avgRating}
+                />
+              </div>
+            ))
         : null}
 
       <div>
@@ -1064,46 +1056,58 @@ const App = () => {
         />
         <label>4.0</label>
       </div>
-<div className='form flex-col'>
-<h3 className='font-mono font-semibold text-2xl'>Add static data to json</h3>
-      <div className='flex flex-col gap-3 w-1/2'>
-      < input className='p-3 bg-blue-100 font-mono font-semibold '  
-        type="text"
-        placeholder="name"
-        name="serachquery"
-        id="search"
-        value={value}
-        onChange={(e) => {
-  
-          setvalue(e.target.value);
-        }}
-      />
+      <div className="form flex-col">
+        <h3 className="font-mono font-semibold text-2xl">
+          Add static data to json
+        </h3>
+        <div className="flex flex-col gap-3 w-1/2">
+          <input
+            className="p-3 bg-blue-100 font-mono font-semibold "
+            type="text"
+            placeholder="name"
+            name="serachquery"
+            id="search"
+            value={value}
+            onChange={(e) => {
+              setvalue(e.target.value);
+            }}
+          />
 
-      {value=='' ? <h1>*enter value</h1>:null}
+          {value == '' ? <h1>*enter value</h1> : null}
 
-      < input className='p-3 bg-blue-100 font-mono font-semibold '
-        type="text"
-        placeholder="cloudinaryImageId"
-        name="cloudinaryImageId"
-        value={cloudinaryImageId}
-        onChange={(e) => {
-          setcloudinaryImageId(e.target.value);
-        }}
-      />
-  {avgRating=='' ? <h1 className='font-mono text-red-600 font-medium'>* enter avgRating</h1>:null}
-      < input className='p-3 bg-blue-100 font-mono font-semibold '
-        type="text"
-        placeholder="avgRating"
-        name="avgRating"
-        value={avgRating}
-        onChange={(e) => {
-          setAvgRating(e.target.value);
-        }}
-      />
+          <input
+            className="p-3 bg-blue-100 font-mono font-semibold "
+            type="text"
+            placeholder="cloudinaryImageId"
+            name="cloudinaryImageId"
+            value={cloudinaryImageId}
+            onChange={(e) => {
+              setcloudinaryImageId(e.target.value);
+            }}
+          />
+          {avgRating == '' ? (
+            <h1 className="font-mono text-red-600 font-medium">
+              * enter avgRating
+            </h1>
+          ) : null}
+          <input
+            className="p-3 bg-blue-100 font-mono font-semibold "
+            type="text"
+            placeholder="avgRating"
+            name="avgRating"
+            value={avgRating}
+            onChange={(e) => {
+              setAvgRating(e.target.value);
+            }}
+          />
+        </div>
+        <button
+          className="bg-blue-100 hover: to-blue-400 "
+          onClick={handleClick}
+        >
+          Submit
+        </button>
       </div>
-      <button className='bg-blue-100 hover: to-blue-400 ' onClick={handleClick}>Submit</button>
-</div>
- 
     </div>
   );
 };
@@ -1149,16 +1153,16 @@ const Footer = () => {
   return (
     <>
       <h1>This is a footer Page </h1>
+      <h2></h2>
     </>
   );
 };
 export const AppLayout = () => {
   return (
     <>
-
       <Appnav />
-      <section className='max-w-7xl mx-auto '>
-      <Outlet />
+      <section className="max-w-7xl mx-auto ">
+        <Outlet />
       </section>
 
       <Footer />
