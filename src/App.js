@@ -7,16 +7,16 @@ import Appheadertwo from './Appheadertwo';
 const Appnav = () => {
   return (
     <>
-      <Appheadertwo />
+      {/* <Appheadertwo /> */}
       <div
-        className="header"
-        style={{ display: 'flex', justifyContent: 'space-between' }}
+        className="header flex justify-between max-w-7xl mx-auto py-3 "
+       
       >
         <Logo />
         <Appheader />
         <Login />
       </div>
-      <div style={{ borderBottom: '1px solid black', width: '100%' }}></div>
+      <div className='border-b-4 border-dotted border-black '></div>
     </>
   );
 };
@@ -27,7 +27,7 @@ const Logo = () => {
     <>
       <Link to="/">
         {' '}
-        <img src={logourl} alt="logoimage" width="80rem" />;
+        <img src={logourl} alt="logoimage" width="80rem" />
       </Link>
     </>
   );
@@ -44,9 +44,9 @@ const Login = () => {
     settoggle(!toggle);
   };
   return toggle === false ? (
-    <button onClick={handleClickk}>Login button</button>
+    <button onClick={handleClickk} className='bg-blue-500 p-3'>Login </button>
   ) : (
-    <button onClick={handleClickk}>Logout button</button>
+    <button onClick={handleClickk} className='bg-blue-500 p-3'>Logout </button>
   );
 };
 
@@ -865,6 +865,7 @@ const App = () => {
   // console.log(value);
   const [searchtxt, setsearchtxt] = useState('');
   const handleClick = () => {
+ 
     const obj = {
       data: {
         id: restaurantListt.length + 1,
@@ -893,54 +894,33 @@ const App = () => {
     <div className="Applayout">
       {autheticateUser() === true ? (
         <div>
-          <h1>login sucessfully</h1>
-          <button>logout-button</button>
+          <h1 className='font-mono'>login sucessfully</h1>
+          <button  className='bg-blue-400 p-3 rounded-md font-mono'>logout-button</button>
         </div>
       ) : (
-        <button>login-button</button>
+        <button className='bg-blue-400 ' >login-button</button>
       )}
 
-      <h3>Add data into satic json</h3>
-      <input
-        type="text"
-        placeholder="name"
-        name="serachquery"
-        id="search"
-        value={value}
-        onChange={(e) => {
-          setvalue(e.target.value);
-        }}
-      />
-      <input
-        type="text"
-        placeholder="cloudinaryImageId"
-        name="cloudinaryImageId"
-        value={cloudinaryImageId}
-        onChange={(e) => {
-          setcloudinaryImageId(e.target.value);
-        }}
-      />
 
-      <input
-        type="text"
-        placeholder="avgRating"
-        name="avgRating"
-        value={avgRating}
-        onChange={(e) => {
-          setAvgRating(e.target.value);
-        }}
-      />
+
+
+
+
+
+
+
+
       {/* {JSON.stringify(getData())} */}
       <br />
       {value}
       <br />
-      <button onClick={handleClick}>Submit</button>
-      <h3>Search</h3>
 
-      <div>
-        <input
+      <h3 className='font-mono font-extrabold text-black text-lg'>Search box</h3>
+
+      <div >
+        <input className='border-2 border-solid border-blue-500 p-3 text-black font-mono font-semibold  focus:bg-blue-100 outline-none text-lg pr-20'
           type="text"
-          placeholder="serach"
+          placeholder="Search food"
           name="serachquery"
           id="search"
           value={searchtxt}
@@ -949,7 +929,7 @@ const App = () => {
           }}
         />
 
-        <h1> {searchtxt}</h1>
+        {/* <h1> {searchtxt}</h1> */}
       </div>
 
       {/* first of all you have to make a 
@@ -1014,7 +994,9 @@ const App = () => {
       {searchtxt !== '' &&
         restaurantListt.filter((num) => searchtxt == num.data.name).length ===
         0 ? (
-        <h1>Not Found</h1>
+      <div className='text-center'>
+          <h1 className='text-2xl font-mono font-bold'>Not Found!!! </h1>
+      </div>
       ) : null}
 
       {/* restaurantList
@@ -1082,6 +1064,46 @@ const App = () => {
         />
         <label>4.0</label>
       </div>
+<div className='form flex-col'>
+<h3 className='font-mono font-semibold text-2xl'>Add static data to json</h3>
+      <div className='flex flex-col gap-3 w-1/2'>
+      < input className='p-3 bg-blue-100 font-mono font-semibold '  
+        type="text"
+        placeholder="name"
+        name="serachquery"
+        id="search"
+        value={value}
+        onChange={(e) => {
+  
+          setvalue(e.target.value);
+        }}
+      />
+
+      {value=='' ? <h1>*enter value</h1>:null}
+
+      < input className='p-3 bg-blue-100 font-mono font-semibold '
+        type="text"
+        placeholder="cloudinaryImageId"
+        name="cloudinaryImageId"
+        value={cloudinaryImageId}
+        onChange={(e) => {
+          setcloudinaryImageId(e.target.value);
+        }}
+      />
+  {avgRating=='' ? <h1 className='font-mono text-red-600 font-medium'>* enter avgRating</h1>:null}
+      < input className='p-3 bg-blue-100 font-mono font-semibold '
+        type="text"
+        placeholder="avgRating"
+        name="avgRating"
+        value={avgRating}
+        onChange={(e) => {
+          setAvgRating(e.target.value);
+        }}
+      />
+      </div>
+      <button className='bg-blue-100 hover: to-blue-400 ' onClick={handleClick}>Submit</button>
+</div>
+ 
     </div>
   );
 };

@@ -15,31 +15,21 @@ const Appheaderdata = [
 const Appheader = () => {
   return (
     <nav>
-      <h1 className='text '>dsadsadasd</h1>
-      <h2 className='font-mono text-blue-400'>css change branch</h2>
+    
+      
 
-      <h3>nwe changes doen</h3>
-      <h4>sub branch main</h4>
-
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Button
-      </button>
-      <h1 className="text-6xlxl underline bg-green-400  font-sans font-light text-black">dasdasd</h1>
       <ul
-        style={{
-          display: 'flex',
-          ' alignItems': 'center',
-          textDecoration: 'none',
-          listStyleType: 'none',
-        }}
+      className='flex  flex-row justify-center gap-10 border-red-100'
       >
         {Appheaderdata.map((num, idx) => {
           return (
-            <li key={idx}>
-              <Link to={'/' + num.nav_name} style={{ textDecoration: 'none' }}>
+            <li key={idx} className='flex items-center gap-0 border-2 bg-red-400 rounded-md  font-mono font-bold hover:bg-red-300  duration-75 px-2' >
+                        <span>{num?.svg_id && <num.svg_id />}</span>
+              <Link to={'/' + num.nav_name} className='decoration-none p-3 flex items-center gap-2'>
                 {num?.nav_name}
+       
               </Link>{' '}
-              <span>{num?.svg_id && <num.svg_id />}</span>
+            
             </li>
           );
         })}

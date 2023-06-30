@@ -1,3 +1,11 @@
 Task -1 add some styling in the compoment 
 
 task:2--create a useloaction function and store the information in a state and route the page to some other component
+
+
+
+
+====================================================================
+
+
+Today you have to add al the designing realted part for the home page 

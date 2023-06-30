@@ -3,7 +3,7 @@ const Appheadertwo = () => {
 
 
     return (<>
-        <section className="max-w-6xl mx-auto ">
+        <section className="max-w-6xl mx-auto  ">
             <div className="logoname flex flex-row justify-center items-center">
                 <div className="logo">
                     <svg width="36" height="38" viewBox="0 0 36 38" fill="none" xmlns="http://www.w3.org/2000/svg">
